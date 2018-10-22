@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% set active_page = "login" %}
+{% block header %}
+<title>Login Page</title>
+{% endblock %}
+{% block content %}
+<h3>Login Page</h3>
+<div class="container col-md-6">
+    <div class="col-lg">
+      <br>
+      <br>
+<form  method='POST'>
+        <div class="form-group">
+          <label for="username">Email address</label>
+          <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="Enter user">
+          <small id="username" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+      </div>
+{% endblock %}
+{% block footer %}
+<h5>Login footer</h5>
+{% endblock %}

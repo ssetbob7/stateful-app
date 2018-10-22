@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% set active_page = "mo_query" %}
+{% block header %}
+<title>MO Query</title>
+
+{% endblock %}
+{% block content %}
+<div class="container col-md-5">
+<h3>MO Query</h3>
+<h5>Search any Managed Object(MO)</h5>
+<!-- <form class="form-inline my-2 my-lg-0"> -->
+<!--     <input class="form-control mr-sm-2" type="search" name="mosearch" placeholder="search" aria-label="search"> -->
+<!--     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+<!--  </form> -->
+<form class="form-inline my-2 my-lg-0" method="POST"> 
+  {{ form.csrf_token }}
+ 
+  <p>{{form.search(class="form-control mr-sm-2")}} {{form.submit(class="btn btn-outline-success my-2 my-sm-0")}}</p>
+  <p>{{form.search.error}}</p>
+ </form>
+  <br>
+  <h5>Or select MO from Dropdown</h5>
+  <form method="get">
+  <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" name="mosearch" value="fvAEPg" type="submit">EPGs</button>
+          <button class="dropdown-item" type="button">Another action</button>
+          <button class="dropdown-item" type="button">Something else here</button>
+        </div>
+      </div>
+    </form>
+</div>
+    <div class="container col-md-5 position-static">
+     <div class="col-lg">
+       {% if error %}
+       <br><h5>Failed request.  Error = <h6>{{error}}</h6></h5>
+       {% endif %}
+       {% for tname in tenant %}
+       <ul class="list-group">
+         <li class="list-group-item d-inline p-2 bg-dark text-white">{{tname.name}}
+         {% if tname.id %}
+         &nbsp&nbsp(id = {{tname.id}}) 
+         {% endif %}
+         </li>
+       </ul>
+       {% endfor %}
+      </div>
+     </div>
+{% endblock %}
+
+{% block footer %}
+<h5>MO Query footer</h5>
+{% endblock %}

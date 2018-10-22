@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% set active_page = "create" %}
+{% block header %}
+<title>Create</title>
+{% endblock %}
+{% block content %}
+<h3>Create</h3>
+{% if searchs %}
+<p>{{searchs}}</p>
+{% endif %}
+<h3>Create ACI tenants</h3>
+<div class="container col-md-6">
+       <div class="col-lg">
+        <br><br>
+        <form class="form-group" method="POST">
+        {{ form.csrf_token }}
+        {{form.tenant.label}}
+        {{form.tenant(class="form-control")}}<br>
+        {{form.app.label}}
+        {{form.app(class="form-control")}}<br>
+        {{form.epg.label}}
+        {{form.epg(class="form-control")}}<br>
+        {{form.bd.label}}
+        {{form.bd(class="form-control")}}<br>
+<input type="submit" class="btn btn-primary" value="Submit">
+
+</form>
+</div>
+{% endblock %}
+{% block footer %}
+<h5>Create</h5>
+{% endblock %}

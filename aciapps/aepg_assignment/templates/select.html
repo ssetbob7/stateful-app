@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% set active_page = "index" %}
+{% block header %}
+<title>SELECT Page</title>
+{% endblock %}
+{% block content %}
+<h3>SELECT Page</h3>
+<form method="POST">
+        <select class="custom-select" name='leafs' multiple>
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+       <select class="custom-select" name='interfaces' multiple>
+           <option selected>Open this select menu</option>
+           <option value="interface 1">interface 1</option>
+           <option value="interface 2">interface 2</option>
+           <option value="interface 3">interface 3</option>
+        </select>     
+        <div class="custom-control custom-radio">
+             <input type="radio" id="tagging1" name="vlan_type" value="access" class="custom-control-input">
+             <label class="custom-control-label" for="tagging1">Access</label>
+           </div>
+           <div class="custom-control custom-radio">
+             <input type="radio" id="tagging2" name="vlan_type" value="trunk" class="custom-control-input">
+             <label class="custom-control-label" for="tagging2">Trunk</label>
+           </div>
+           <div class="col-md-4 mb-3">
+                <label for="validationCustom01">Vlan</label>
+                <input type="text" class="form-control" name='vlan_number' id="validationCustom01" placeholder="vlan number" required>
+              <input type="submit" value="Submit">
+        
+</form>
+{% endblock %}
+{% block footer %}
+<h5>SELECT footer</h5>
+{% endblock %}

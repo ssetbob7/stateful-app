@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% set active_page = "index" %}
+{% block header %}
+<title>Home Page</title>
+{% endblock %}
+{% block content %}
+<h3>Home Page</h3>
+<form method="POST">
+{{ form.csrf_token }}
+{{form.leafselect.label}}
+{{form.leafselect}}<br>
+{{form.ifselect.label}}
+{{form.ifselect}}<br>
+<input type="submit" value="Submit">
+<!--{{form.submit}}-->
+</form>
+{% endblock %}
+{% block footer %}
+<h5>Home footer</h5>
+{% endblock %}

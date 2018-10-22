@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% set active_page = "index" %}
+{% block header %}
+<title>Home Page</title>
+{% endblock %}
+{% block content %}
+<h3>Home Page</h3>
+{% if searchs %}
+<p>{{searchs}}</p>
+{% endif %}
+{% endblock %}
+{% block footer %}
+<h5>Home footer</h5>
+<script src="../static/jquery.js"></script>
+
+{% endblock %}

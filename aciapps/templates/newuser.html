@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% set active_page = "newuser" %}
+{% block header %}
+<title>User Registration Page</title>
+{% endblock %}
+{% block content %}
+<h3>User Registration Page</h3>
+<div class="container col-md-6">
+       <div class="col-lg">
+        <br><br>
+        <form class="form-group" method="POST">
+        {{ form.csrf_token }}
+        {{form.user.label}}
+        {{form.user(class="form-control")}}<br>
+        {{form.password.label}}
+        {{form.password(class="form-control")}}<br>
+        {{form.email.label}}
+        {{form.email(class="form-control")}}<br>
+<input type="submit" class="btn btn-primary" value="Submit">
+{% if user %}
+<h3>{{user}}  {{password}}</h3>
+{% endif %}
+<!--{{form.submit}}-->
+</form>
+</div>
+</div>
+
+{% endblock %}
+{% block footer %}
+
+{% endblock %}
